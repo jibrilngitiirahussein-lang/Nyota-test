@@ -1,0 +1,338 @@
+/* --- Global Reset & Mobile Optimization --- */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+html, body { height: 120%; overflow-x: hidden; background-color: #f9f9f9; color: #333; }
+.hidden { display: none !important; }
+.page { min-height: 100vh; width: 100%; position: relative; }
+
+/* --- Navigation & Logos --- */
+.navbar { display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; background: white; border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 900; }
+.logo-area { display: flex; align-items: center; gap: 10px; }
+
+
+/* 1. STYLING FOR YOUR LOGO IMAGE */
+.logo-image-container {
+    width: 60px;  /* Adjust this width to fit your logo shape */
+    height: 50px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-img {
+    max-width: 200%;
+    max-height: 120%;
+    object-fit: contain;
+}
+
+
+
+/* Hamburger Menu Icon */
+.hamburger { cursor: pointer; display: flex; flex-direction: column; gap: 5px; padding: 5px; z-index: 901; }
+.hamburger span { display: block; width: 24px; height: 3px; background: #333; border-radius: 2px; transition: 0.3s; }
+
+/* --- Side Menu (Swipe-in) --- */
+.side-menu { position: fixed; left: -100%; top: 0; width: 85%; max-width: 320px; height: 100%; background: white; z-index: 1000; transition: 0.4s ease-in-out; box-shadow: 5px 0 25px rgba(0,0,0,0.15); }
+.side-menu.active { left: 0; }
+.menu-header { background: #008000; /* Primary Green */ padding: 20px; display: flex; align-items: center; }
+.back-btn { background: none; border: none; color: white; font-size: 2rem; cursor: pointer; padding: 0 10px; line-height: 1; }
+.menu-links { list-style: none; padding: 10px 0; }
+.menu-links li a { text-decoration: none; color: #333; display: block; padding: 18px 25px; font-size: 1.1rem; border-bottom: 1px solid #f0f0f0; transition: 0.2s; }
+.menu-links li a:hover { background-color: #f9f9f9; color: #008000; }
+
+/* --- Hero Section & Background Image --- */
+.hero { height: calc(100vh - 71px); /* Viewport height minus nav height */ position: relative; display: flex; align-items: center; justify-content: center; text-align: center; color: white; padding: 30px; }
+
+/* 2. STYLING FOR YOUR MAIN BACKGROUND IMAGE */
+.hero-bg-image { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
+.bg-img { width: 100%; height: 100%; object-fit: cover; /* Ensures image covers area without stretching */ object-position: center; }
+.hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); /* Dark overlay for text contrast */ z-index: 2; }
+
+.hero-content { position: relative; z-index: 3; max-width: 600px; }
+.hero h1 { font-size: 2.2rem; font-weight: 800; line-height: 1.2; margin-bottom: 15px; text-shadow: 0 2px 4px rgba(0,0,0,0.3); }
+.hero p { font-size: 1.1rem; line-height: 1.5; margin-bottom: 35px; opacity: 0.95; font-weight: 400; text-shadow: 0 1px 2px rgba(0,0,0,0.2); }
+
+/* Apply Loan Button */
+.btn-apply { background: #008000; /* Pure Green */ color: white; border: none; padding: 16px 45px; border-radius: 50px; font-size: 1.1rem; font-weight: 700; cursor: pointer; box-shadow: 0 4px 15px rgba(0,128,0,0.3); transition: 0.3s; -webkit-tap-highlight-color: transparent; }
+.btn-apply:hover { background: #006600; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,128,0,0.4); }
+.btn-apply:active { transform: translateY(1px); }
+
+/* --- Loan Page & Accordion --- */
+.loan-nav { background-color: white; border-bottom: none; }
+.back-btn-dark { background: none; border: none; color: #333; font-size: 1.8rem; cursor: pointer; padding: 5px; line-height: 1; }
+.loan-container { padding: 25px 20px 50px; max-width: 600px; margin: 0 auto; }
+.loan-container h3 { font-size: 1.4rem; font-weight: 700; margin-bottom: 25px; color: #222; text-align: center; }
+
+/* Accordion Styling */
+.accordion { background: white; border: 1px solid #eaeaea; margin-bottom: 15px; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); transition: 0.3s; }
+.accordion:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.08); border-color: #e0e0e0; }
+.accordion-header { padding: 20px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.accordion-header span { font-weight: 600; font-size: 1rem; color: #333; }
+.accordion-header .arrow { font-size: 1.2rem; color: #888; transition: 0.3s ease; }
+.accordion.active .arrow { transform: rotate(180deg); color: #008000; }
+
+.accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; background: #fafafa; border-top: 0 solid #eee; }
+.accordion.active .accordion-content { max-height: 500px; /* Adjust as needed */ border-top: 1px solid #eee; }
+
+/* Form Styling inside Accordion */
+.form-group { padding: 20px; display: flex; flex-direction: column; gap: 12px; }
+.form-group input { width: 100%; padding: 14px 18px; font-size: 1rem; border: 1px solid #ddd; border-radius: 8px; background: white; transition: 0.2s; -webkit-appearance: none; }
+.form-group input:focus { border-color: #008000; outline: none; box-shadow: 0 0 0 3px rgba(0,128,0,0.1); }
+
+.btn-submit { background: #008000; color: white; border: none; padding: 14px; border-radius: 8px; font-size: 1rem; font-weight: 700; cursor: pointer; transition: 0.2s; margin-top: 8px; -webkit-tap-highlight-color: transparent; }
+.btn-submit:hover { background: #006600; }
+.btn-submit:active { background: #005500; }
+
+/* --- Status Overlay (Processing/Done) --- */
+.status-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 2000; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(4px); }
+.status-content { background: white; padding: 40px 30px; border-radius: 20px; text-align: center; box-shadow: 0 10px 40px rgba(0,0,0,0.2); max-width: 300px; width: 85%; }
+#statusText { font-size: 1.2rem; font-weight: 600; color: #222; margin: 20px 0; }
+
+/* Simple CSS Loader */
+.loader { border: 4px solid #f3f3f3; border-top: 4px solid #008000; border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; margin: 0 auto; }
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+.btn-done { background: #008000; color: white; border: none; padding: 12px 30px; border-radius: 8px; font-size: 1rem; font-weight: 700; cursor: pointer; width: 100%; transition: 0.2s; }
+.btn-done:hover { background: #006600; }
+
+/* Employability Card Styles */
+.employ-card {
+    background: white;
+    margin: 20px 0;
+    border-radius: 0 0 15px 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.card-image-container {
+    position: relative;
+    height: 200px;
+}
+
+.card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.floating-icon {
+    position: absolute;
+    bottom: -30px;
+    left: 20px;
+    background: #008000;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 5px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.card-text {
+    padding: 40px 20px 25px;
+}
+
+.card-text h2 {
+    color: #2c3e50;
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+.read-more {
+    color: #008000;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 15px;
+}
+
+/* Details Page Styles */
+logo-image-container {
+    width: 60px;  /* Adjust this width to fit your logo shape */
+    height: 50px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   }
+.logo-img {
+    max-width: 200%;
+    max-height: 120%;
+    object-fit: contain;
+}
+.details-container {
+    padding: 20px;
+}
+
+.page-title {
+    color: #2c3e50;
+    border-left: 5px solid #008000;
+    padding-left: 15px;
+    margin-bottom: 25px;
+}
+
+.info-box {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.info-box h3 {
+    color: #008000;
+    margin-bottom: 15px;
+    
+}
+
+.info-box ul {
+    list-style: none;
+}
+
+.info-box li, .point {
+    margin-bottom: 12px;
+    line-height: 1.5;
+    font-size: 0.95rem;
+}
+
+.container2 {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: black;
+}
+
+p {
+    font-size: 25px;
+    color: #bb
+}
+/* The Green Circle with thick white border */
+.floating-circle {
+    position: absolute;
+    bottom: -32px;
+    left: 20px;
+    background-color: #005900; /* Deep NYOTA Green */
+    width: 65px; 
+    height: 65px;
+    border-radius: 50%;
+    border: 5px solid #ffffff; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* The Sharp White Vector Icon */
+.hd-training-icon {
+    position: relative;
+    width: 30px; 
+    height: 20px;
+    border: 2px solid #ffffff; /* The 'Board' outline */
+    border-radius: 2px;
+}
+
+/* The Person's Head */
+.hd-training-icon::before {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 4px;
+    width: 8px;
+    height: 8px;
+    background-color: #ffffff;
+    border-radius: 50%;
+}
+
+/* The Person's Shoulders */
+.hd-training-icon::after {
+    content: '';
+    position: absolute;
+    bottom: 1px;
+    left: 2px;
+    width: 12px;
+    height: 5px;
+    background-color: #ffffff;
+    border-radius: 4px 4px 0 0;
+}
+/* Milestone and Intervention Styles */
+.content-padding {
+    padding: 20px;
+    background: #fff;
+}
+
+.detail-header {
+    border-left: 5px solid #005900;
+    padding-left: 15px;
+    color: #1a2a6c;
+    margin-bottom: 20px;
+}
+
+.highlight-box {
+    background: #f0f4f0;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid #008000;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.milestone-highlight {
+    background: #005900;
+    color: white;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+}
+
+.milestone-highlight h3 {
+    margin-bottom: 10px;
+    color: #ffd700; /* Gold color for the amount */
+}
+
+.intervention-item {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.intervention-item h4 {
+    color: #005900;
+    margin-bottom: 5px;
+}
+
+/* HD Briefcase Icon (CSS Vector) */
+.hd-briefcase-icon {
+    width: 28px;
+    height: 20px;
+    border: 2px solid #fff;
+    border-radius: 4px;
+    position: relative;
+}
+
+.hd-briefcase-icon::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: 8px;
+    width: 8px;
+    height: 4px;
+    border: 2px solid #fff;
+    border-bottom: none;
+    border-radius: 3px 3px 0 0;
+}
+
+.hd-briefcase-icon::after {
+    content: '';
+    position: absolute;
+    top: 6px;
+    left: 11px;
+    width: 2px;
+    height: 4px;
+    background: #fff;
+}
